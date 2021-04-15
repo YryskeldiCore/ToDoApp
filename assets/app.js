@@ -1,15 +1,19 @@
-/*
- * Welcome to your app's main JavaScript file!
- *
- * We recommend including the built version of this JavaScript file
- * (and its CSS file) in your base layout (base.html.twig).
- */
+import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
+import TodoContextProvider from "./js/contexts/TodoContextProvider";
+import TodoTable from "./js/components/TodoTable";
+import {CssBaseline} from "@material-ui/core";
 
-// any CSS you import will output into a single css file (app.css in this case)
+class App extends Component {
+    render() {
+        return (
+            <TodoContextProvider>
+                <CssBaseline>
+                    <TodoTable/>
+                </CssBaseline>
+            </TodoContextProvider>
+        );
+    }
+}
 
-import './styles/app.css';
-
-// start the Stimulus application
-import './bootstrap';
-
-console.log('Hello Bro!')
+ReactDOM.render(<App/>, document.getElementById('root'))
